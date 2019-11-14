@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdapterActivity"></activity>
+        <activity android:name=".GameProfileActivity"></activity>
+        <activity android:name=".AdapterActivity" />
         <activity android:name=".GamesActivity" />
         <activity android:name=".GamesAdapter" />
         <activity android:name=".ForgotActivity" />
