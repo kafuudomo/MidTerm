@@ -5,21 +5,22 @@ public class Games {
     private String gameName;
     private String gameRate;
     private String gamePrice;
+    private String gameDescription;
 
     public Games(){
 
     }
 
-    public Games(String Name, String Rate, String Price) {
+    public Games(String Name, String Rate, String Price, String Description) {
         this.gameName = Name;
         this.gameRate = Rate;
         this.gamePrice = Price;
+        this.gameDescription = Description;
     }
 
     public String getGameName() {
         return gameName;
     }
-
 
     public String getGameRate() {
         return gameRate;
@@ -27,6 +28,10 @@ public class Games {
 
     public String getGamePrice() {
         return gamePrice;
+    }
+
+    public String getGameDescription() {
+        return gameDescription;
     }
 
     public void setGameName(String Name) {
@@ -39,5 +44,9 @@ public class Games {
 
     public void setGamePrice(String Price) {
         this.gamePrice = Price;
+    }
+
+    public void setGameDescription(String Description) {
+        this.gamePrice = Description;
     }
 }
