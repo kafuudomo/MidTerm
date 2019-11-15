@@ -34,8 +34,6 @@ public class AdapterActivity extends ArrayAdapter<Games> {
         this.dataset = data;
         this.context = context;
 
-
-
     }
 
     @NonNull

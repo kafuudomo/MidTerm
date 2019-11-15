@@ -3,7 +3,6 @@ package com.example.mt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.method.HideReturnsTransformationMethod;
@@ -16,6 +15,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 
 public class MainActivity extends AppCompatActivity {
     private EditText etUserName, etPassword;
@@ -24,7 +26,11 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox cbShowPassword;
 
     String Username = "Larry";
-    String Password = "SHA-256";
+    String Password = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
+
+
+
+    StringBuffer sb = new StringBuffer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +38,13 @@ public class MainActivity extends AppCompatActivity {
         this.getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
         findview();
-        Login();
+
+        String inputU = etUserName.getText().toString();
+        String inputP = etPassword.getText().toString();
+
+        Login(inputU);
+        hashPassword(inputP);
+        System.out.println("ABCABC"+sb);
 
     }
 
@@ -44,14 +56,13 @@ public class MainActivity extends AppCompatActivity {
         cbShowPassword = findViewById(R.id.ShowPassword);
     }
 
-    private void Login(){
+    private void Login(final String inputU){
         btn_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String inputU = etUserName.getText().toString();
-                String inputP = etPassword.getText().toString();
 
-                if (inputU.equals(Username) && inputP.equals(Password)){
+
+                if (inputU.equals(Username) && sb.equals(Password)){
                     Intent g = new Intent(MainActivity.this,GamesActivity.class);
                     startActivity(g);
                     Toast.makeText(MainActivity.this,"OK",Toast.LENGTH_SHORT).show();
@@ -84,4 +95,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    private String hashPassword(String password) {
+        MessageDigest digest = null;
+        try {
+            digest = MessageDigest.getInstance("SHA-256");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        digest.update(password.getBytes());
+
+        byte[] hash = digest.digest();
+
+        for (byte b : hash) {
+            sb.append(String.format("%02x", b & 0xff));
+        }
+
+        return sb.toString();
+    }
+
+
 }

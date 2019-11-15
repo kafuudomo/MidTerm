@@ -47,6 +47,6 @@ public class Games {
     }
 
     public void setGameDescription(String Description) {
-        this.gamePrice = Description;
+        this.gameDescription = Description;
     }
 }
