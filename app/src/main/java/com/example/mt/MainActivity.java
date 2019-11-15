@@ -26,11 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox cbShowPassword;
 
     String Username = "Larry";
-    String Password = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
-
-
-
-    StringBuffer sb = new StringBuffer();
+    String Password = SHA("ABCABC");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,14 +34,7 @@ public class MainActivity extends AppCompatActivity {
         this.getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
         findview();
-
-        String inputU = etUserName.getText().toString();
-        String inputP = etPassword.getText().toString();
-
-        Login(inputU);
-        hashPassword(inputP);
-        System.out.println("ABCABC"+sb);
-
+        Login();
     }
 
     private void findview(){
@@ -56,13 +45,15 @@ public class MainActivity extends AppCompatActivity {
         cbShowPassword = findViewById(R.id.ShowPassword);
     }
 
-    private void Login(final String inputU){
+    private void Login(){
         btn_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String inputU = etUserName.getText().toString();
+                String inputP = SHA(etPassword.getText().toString());
+                
 
-
-                if (inputU.equals(Username) && sb.equals(Password)){
+                if (inputU.equals(Username) && inputP.equals(Password)){
                     Intent g = new Intent(MainActivity.this,GamesActivity.class);
                     startActivity(g);
                     Toast.makeText(MainActivity.this,"OK",Toast.LENGTH_SHORT).show();
@@ -96,22 +87,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private String hashPassword(String password) {
-        MessageDigest digest = null;
+    private String SHA(String x){
         try {
-            digest = MessageDigest.getInstance("SHA-256");
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(x.getBytes());
+
+            byte[] digest = md.digest();
+            StringBuffer sb = new StringBuffer();
+            for (byte b : digest){
+                sb.append(String.format("%02x", b & 0xff));
+            }
+            return sb.toString();
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
         }
-        digest.update(password.getBytes());
-
-        byte[] hash = digest.digest();
-
-        for (byte b : hash) {
-            sb.append(String.format("%02x", b & 0xff));
-        }
-
-        return sb.toString();
     }
 
 
