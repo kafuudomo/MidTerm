@@ -16,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -51,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String inputU = etUserName.getText().toString();
                 String inputP = SHA(etPassword.getText().toString());
-                
+
 
                 if (inputU.equals(Username) && inputP.equals(Password)){
                     Intent g = new Intent(MainActivity.this,GamesActivity.class);
@@ -105,3 +104,4 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
+//http://www.pratikbutani.com/2016/01/android-json-parsing-using-okhttp-example-with-custom-view-imageview-textview/
