@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 public class GameProfileActivity extends AppCompatActivity {
 
-    TextView tvTitle,tvRate,tvPrice,tvDescription;
+    TextView Title,Rate,Price,Description;
 
     String sTitle, sRate, sPrice, sDescription;
 
@@ -18,22 +18,22 @@ public class GameProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_profile);
 
         sTitle = getIntent().getStringExtra("name");
-        sRate = getIntent().getStringExtra("rate");
+        sRate = getIntent().getStringExtra("rating");
         sPrice = getIntent().getStringExtra("price");
-        sDescription = getIntent().getStringExtra("des");
+        sDescription = getIntent().getStringExtra("description");
 
 
-        tvTitle = findViewById(R.id.tv_Profile_Title);
-        tvTitle.setText(sTitle);
+        Title = findViewById(R.id.tv_Profile_Title);
+        Title.setText(sTitle);
 
-        tvRate = findViewById(R.id.tv_Profile_rate);
-        tvRate.setText(sRate);
+        Rate = findViewById(R.id.tv_Profile_rate);
+        Rate.setText(sRate);
 
-        tvPrice = findViewById(R.id.tv_Profile_Price);
-        tvPrice.setText(sPrice);
+        Price = findViewById(R.id.tv_Profile_Price);
+        Price.setText(sPrice);
 
-        tvDescription = findViewById(R.id.tv_Profile_Description);
-        tvDescription.setText(sDescription);
+        Description = findViewById(R.id.tv_Profile_Description);
+        Description.setText(sDescription);
 
     }
 

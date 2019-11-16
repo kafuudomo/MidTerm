@@ -4,18 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Background"
     android:id="@+id/adapterXML"
     tools:context=".AdapterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/Background"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tv_Name"
+            android:id="@+id/tvName"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:text="Name"
@@ -23,31 +21,30 @@
             android:textStyle="bold"
             android:layout_gravity="center"
             android:layout_margin="5dp"
-            android:textColor="@color/Text"/>
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/Background"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_Rate"
+                android:id="@+id/tvRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Rate"
                 android:textSize="17sp"
                 android:layout_margin="5dp"
-                android:textColor="@color/Text"/>
+                />
 
             <TextView
-                android:id="@+id/tv_Price"
+                android:id="@+id/tvPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Price"
                 android:textSize="17sp"
                 android:layout_margin="5dp"
-                android:textColor="@color/Text"/>
+                />
 
         </LinearLayout>
 

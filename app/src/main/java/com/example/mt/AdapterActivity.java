@@ -23,9 +23,9 @@ public class AdapterActivity extends ArrayAdapter<Games> {
     private Context context;
 
     private static class ViewHolder{
-        TextView tvName;
-        TextView tvRate;
-        TextView tvPrice;
+        TextView Name;
+        TextView Rate;
+        TextView Price;
     }
 
     public AdapterActivity(ArrayList<Games> data, Context context){
@@ -48,9 +48,9 @@ public class AdapterActivity extends ArrayAdapter<Games> {
             holder = new ViewHolder();
             convertView = LayoutInflater.from(context).inflate(R.layout.activity_adapter,parent,false);
 
-            holder.tvName = convertView.findViewById(R.id.tv_Name);
-            holder.tvRate = convertView.findViewById(R.id.tv_Rate);
-            holder.tvPrice = convertView.findViewById(R.id.tv_Price);
+            holder.Name = convertView.findViewById(R.id.tvName);
+            holder.Rate = convertView.findViewById(R.id.tvRate);
+            holder.Price = convertView.findViewById(R.id.tvPrice);
 
             convertView.setTag(holder);
 
@@ -58,9 +58,9 @@ public class AdapterActivity extends ArrayAdapter<Games> {
             holder = (ViewHolder)convertView.getTag();
         }
 
-        holder.tvName.setText(game.getGameName());
-        holder.tvRate.setText(game.getGameRate());
-        holder.tvPrice.setText(game.getGamePrice());
+        holder.Name.setText(game.getGameName());
+        holder.Rate.setText(game.getGameRate());
+        holder.Price.setText(game.getGamePrice());
 
         return convertView;
     }

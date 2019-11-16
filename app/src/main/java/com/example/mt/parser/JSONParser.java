@@ -17,7 +17,7 @@ public class JSONParser {
     /********
      * URLS
      *******/
-    private static final String MAIN_URL = "https://api.myjson.com/bins/16yq7a";
+    private static final String MAIN_URL = "http://api.myjson.com/bins/11792e";
     /**
      * TAGs Defined Here...
      */

@@ -1,6 +1,6 @@
 package com.example.mt.dataModel;
 
-public class Games {
+public class   Games {
 
     private String gameName;
     private String gameRate;

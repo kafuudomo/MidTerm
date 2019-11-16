@@ -19,10 +19,9 @@ import java.security.MessageDigest;
 
 
 public class MainActivity extends AppCompatActivity {
-    private EditText etUserName, etPassword;
-    private Button btn_Login;
-    private TextView tvForgot;
-    private CheckBox cbShowPassword;
+    private EditText entUserName, entPassword;
+    private Button btnLogin;
+
 
     String Username = "Larry";
     String Password = SHA("ABCABC");
@@ -37,25 +36,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void findview(){
-        etUserName = findViewById(R.id.UserName);
-        etPassword = findViewById(R.id.Password);
-        btn_Login = findViewById(R.id.btn_Login);
-        tvForgot = findViewById(R.id.ForgotPasswrd);
-        cbShowPassword = findViewById(R.id.ShowPassword);
+        entUserName = findViewById(R.id.UserName);
+        entPassword = findViewById(R.id.Password);
+        btnLogin = findViewById(R.id.btn_Login);
+
     }
 
     private void Login(){
-        btn_Login.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String inputU = etUserName.getText().toString();
-                String inputP = SHA(etPassword.getText().toString());
+                String inputU = entUserName.getText().toString();
+                String inputP = SHA(entPassword.getText().toString());
 
 
                 if (inputU.equals(Username) && inputP.equals(Password)){
                     Intent g = new Intent(MainActivity.this,GamesActivity.class);
                     startActivity(g);
-                    Toast.makeText(MainActivity.this,"OK",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"Login Success",Toast.LENGTH_SHORT).show();
+                    finish();
                 }else{
                     Toast.makeText(MainActivity.this,"invalid username or password",Toast.LENGTH_SHORT).show();
                 }
@@ -63,26 +62,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        cbShowPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    etPassword.setInputType(InputType.TYPE_CLASS_TEXT);
-                    etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                }else{
-                    etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                    etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                }
-            }
-        });
 
-        tvForgot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,ForgotActivity.class);
-                startActivity(i);
-            }
-        });
 
     }
 
@@ -104,4 +84,3 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
-//http://www.pratikbutani.com/2016/01/android-json-parsing-using-okhttp-example-with-custom-view-imageview-textview/

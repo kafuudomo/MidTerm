@@ -15,7 +15,6 @@
         <activity android:name=".AdapterActivity" />
         <activity android:name=".GamesActivity" />
         <activity android:name=".GamesAdapter" />
-        <activity android:name=".ForgotActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

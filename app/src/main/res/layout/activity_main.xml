@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Background"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -19,7 +18,8 @@
             android:textSize="30sp"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
-            android:textColor="@color/Text"/>
+            android:textStyle="bold"
+           />
 
         <ImageView
             android:layout_width="150dp"
@@ -35,9 +35,8 @@
             android:hint="Username"
             android:layout_margin="25dp"
             android:inputType="text"
-            android:textColor="@color/Text"
-            android:textColorHint="@color/Text"
-            android:backgroundTint="@color/Text"/>
+
+          />
 
         <EditText
             android:id="@+id/Password"
@@ -46,41 +45,10 @@
             android:hint="Password"
             android:layout_margin="25dp"
             android:inputType="textPassword"
-            android:textColor="@color/Text"
-            android:textColorHint="@color/Text"
-            android:backgroundTint="@color/Text"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <CheckBox
-                android:id="@+id/ShowPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Show Password"
-                android:textSize="15sp"
-                android:textColor="@color/Text"
-                android:layout_marginLeft="25dp"
-                android:buttonTint="@color/Text"/>
-
-            <TextView
-                android:id="@+id/ForgotPasswrd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Forgot Password?"
-                android:textSize="15sp"
-                android:textColor="@color/Text"
-                android:layout_marginStart="100dp"
-                android:layout_marginEnd="25dp"/>
+            />
 
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btn_Login"
@@ -89,9 +57,8 @@
                 android:layout_gravity="center"
                 android:text="LOGIN"
                 android:layout_marginTop="25dp"
-                android:background="@color/Button"
-                android:textColor="@color/White"/>
-        </LinearLayout>
+               />
+
 
     </LinearLayout>
 
